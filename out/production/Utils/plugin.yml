@@ -1,0 +1,20 @@
+name: Utils
+description:
+version: 1.1
+main: me.conutik.utils.Main
+api-version: 1.17
+commands:
+  home:
+    description: Teleport to a set home
+  sethome:
+    description: Set a home
+  craft:
+    description: crafting table
+    aliases: ["craftingtable", "crafting"]
+  echest:
+    description: opens ender chest
+    aliases: ["enderchest"]
+  openechest:
+    description: N/A
+    aliases: ["echestopen"]
+
