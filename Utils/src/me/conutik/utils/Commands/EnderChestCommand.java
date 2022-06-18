@@ -1,5 +1,5 @@
 package me.conutik.utils.Commands;
-import me.conutik.utils.PlayerConfig;
+import me.conutik.utils.Config;
 import me.conutik.utils.Utils;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
@@ -17,12 +17,13 @@ public class EnderChestCommand implements CommandExecutor {
         if (sender instanceof Player) {
 
             final Player player = (Player) sender;
+            Config PlayerConfig = new Config();
 
-            PlayerConfig.create(player);
+            PlayerConfig.createPlayerData(player);
 
             PlayerConfig.load(player);
 
-            Object idk = PlayerConfig.config.get("perm.echest");
+            Object idk = PlayerConfig.getConfig().get("perm.echest");
 
             if(idk == null) {
                 player.sendMessage(ChatColor.RED + "You don't have permission to use this command. You need a Corrupted Ender Chest to use this command.");

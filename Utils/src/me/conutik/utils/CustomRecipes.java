@@ -15,7 +15,9 @@ import java.util.List;
 
 public class CustomRecipes {
 
-    public static void enchantedObby() {
+    private Utils main = new Utils().getMain();
+
+    public void enchantedObby() {
 
 
         ItemStack item = new ItemStack(Material.OBSIDIAN);
@@ -35,7 +37,7 @@ public class CustomRecipes {
 
         item.setItemMeta(meta);
 
-        NamespacedKey key = new NamespacedKey(PlayerConfig.main, "obsidian");
+        NamespacedKey key = new NamespacedKey(this.main, "obsidian");
 
         ShapedRecipe recipe = new ShapedRecipe(key, item);
 
@@ -50,7 +52,7 @@ public class CustomRecipes {
 //        Bukkit.getServer().addRecipe();
     }
 
-    public static void corruptChest() {
+    public void corruptChest() {
 
         ItemStack items = new ItemStack(Material.OBSIDIAN);
 
@@ -86,7 +88,7 @@ public class CustomRecipes {
 
         item.setItemMeta(meta);
 
-        NamespacedKey key = new NamespacedKey(PlayerConfig.main, "ender_chest");
+        NamespacedKey key = new NamespacedKey(this.main, "ender_chest");
 
         ShapedRecipe recipe = new ShapedRecipe(key, item);
 

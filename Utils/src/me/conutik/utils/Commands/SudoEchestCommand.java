@@ -1,5 +1,5 @@
 package me.conutik.utils.Commands;
-import me.conutik.utils.PlayerConfig;
+import me.conutik.utils.Config;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
@@ -15,10 +15,6 @@ public class SudoEchestCommand implements CommandExecutor {
         if (sender instanceof Player) {
 
             final Player player = (Player) sender;
-
-            PlayerConfig.create(player);
-
-            PlayerConfig.load(player);
 
 
             if(!player.isOp()) {

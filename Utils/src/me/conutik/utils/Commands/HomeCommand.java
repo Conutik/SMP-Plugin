@@ -1,5 +1,5 @@
 package me.conutik.utils.Commands;
-import me.conutik.utils.PlayerConfig;
+import me.conutik.utils.Config;
 import me.conutik.utils.Utils;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
@@ -23,12 +23,13 @@ public class HomeCommand implements CommandExecutor {
                 player.sendMessage(ChatColor.RED + "Please specify the home name.");
                 return false;
             }
+            Config PlayerConfig = new Config();
 
-            PlayerConfig.create(player);
+            PlayerConfig.createPlayerData(player);
 
             PlayerConfig.load(player);
 
-            Object idk = PlayerConfig.config.get("home."+args[0]);
+            Object idk = PlayerConfig.getConfig().get("home."+args[0]);
 
             if(idk == null) {
                 player.sendMessage(ChatColor.RED + "You don't have a home with this name.");

@@ -1,5 +1,5 @@
 package me.conutik.utils.Commands;
-import me.conutik.utils.PlayerConfig;
+import me.conutik.utils.Config;
 import me.conutik.utils.Utils;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
@@ -22,12 +22,13 @@ public class SetHomeCommand implements CommandExecutor {
                 player.sendMessage(ChatColor.RED + "Please specify home name.");
                 return false;
             }
+            Config PlayerConfig = new Config();
 
-            PlayerConfig.create(player);
+            PlayerConfig.createPlayerData(player);
 
             PlayerConfig.load(player);
 
-            PlayerConfig.config.set("home."+args[0], player.getLocation());
+            PlayerConfig.getConfig().set("home."+args[0], player.getLocation());
 
             player.sendMessage(ChatColor.GREEN + "Home " + '"' + args[0] + '"' + " has been set");
 

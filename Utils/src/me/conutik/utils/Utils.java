@@ -27,7 +27,7 @@ public class Utils extends JavaPlugin implements Listener {
 
 
     public void onEnable() {
-        PlayerConfig.setMain(this);
+        new Config().setMain(this);
         Bukkit.getServer().getConsoleSender().sendMessage(ChatColor.GREEN + "Utils v" + info.getVersion() + " is now Online");
         Bukkit.getPluginManager().registerEvents(this, this);
 
@@ -37,8 +37,9 @@ public class Utils extends JavaPlugin implements Listener {
         getCommand("echest").setExecutor(new EnderChestCommand());
         getCommand("openechest").setExecutor(new SudoEchestCommand());
 
-        CustomRecipes.enchantedObby();
-        CustomRecipes.corruptChest();
+        CustomRecipes recipes = new CustomRecipes();
+        recipes.enchantedObby();
+        recipes.corruptChest();
     }
 
     @EventHandler
@@ -107,12 +108,13 @@ public class Utils extends JavaPlugin implements Listener {
                     e.getPlayer().getInventory().setItemInMainHand(null);
 
                     Player player = e.getPlayer();
+                    Config PlayerConfig = new Config();
 
-                    PlayerConfig.create(player);
+                    PlayerConfig.createPlayerData(player);
 
                     PlayerConfig.load(player);
 
-                    PlayerConfig.config.set("perm.echest", true);
+                    PlayerConfig.getConfig().set("perm.echest", true);
 
                     e.getPlayer().sendMessage(ChatColor.GREEN + "You have unlocked the ability to use /echest");
 
@@ -122,6 +124,10 @@ public class Utils extends JavaPlugin implements Listener {
                 }
             }
         }
+    }
+
+    public Utils getMain() {
+        return this;
     }
 
 
