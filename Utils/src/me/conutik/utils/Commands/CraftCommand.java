@@ -1,11 +1,11 @@
-package me.conutik.utils;
+package me.conutik.utils.Commands;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-public class craft implements CommandExecutor {
+public class CraftCommand implements CommandExecutor {
 
 
     @Override

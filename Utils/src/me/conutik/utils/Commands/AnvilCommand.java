@@ -1,4 +1,4 @@
-package me.conutik.utils;
+package me.conutik.utils.Commands;
 
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
@@ -8,7 +8,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryType;
 import org.bukkit.inventory.Inventory;
 
-public class anvil implements CommandExecutor {
+public class AnvilCommand implements CommandExecutor {
 
 
     @Override

@@ -1,10 +1,9 @@
 package me.conutik.utils;
 
+import me.conutik.utils.Commands.*;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
-import org.bukkit.NamespacedKey;
-import org.bukkit.entity.Arrow;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.block.Action;
@@ -13,18 +12,16 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.ShapedRecipe;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.event.Listener;
-import org.bukkit.util.Vector;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-public class Main extends JavaPlugin implements Listener {
+public class Utils extends JavaPlugin implements Listener {
     PluginDescriptionFile info = this.getDescription();
 
 
@@ -34,14 +31,14 @@ public class Main extends JavaPlugin implements Listener {
         Bukkit.getServer().getConsoleSender().sendMessage(ChatColor.GREEN + "Utils v" + info.getVersion() + " is now Online");
         Bukkit.getPluginManager().registerEvents(this, this);
 
-        getCommand("sethome").setExecutor(new sethome());
-        getCommand("home").setExecutor(new home());
-        getCommand("craft").setExecutor(new craft());
-        getCommand("echest").setExecutor(new echest());
-        getCommand("openechest").setExecutor(new openechest());
+        getCommand("sethome").setExecutor(new SetHomeCommand());
+        getCommand("home").setExecutor(new HomeCommand());
+        getCommand("craft").setExecutor(new CraftCommand());
+        getCommand("echest").setExecutor(new EnderChestCommand());
+        getCommand("openechest").setExecutor(new SudoEchestCommand());
 
-        customrecipe.enchantedObby();
-        customrecipe.corruptChest();
+        CustomRecipes.enchantedObby();
+        CustomRecipes.corruptChest();
     }
 
     @EventHandler
